@@ -1,1 +1,1 @@
-# janken
+# odin-janken
