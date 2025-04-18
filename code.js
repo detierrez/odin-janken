@@ -6,7 +6,14 @@ playGame();
 function playGame() {
     for (let i = 1; i <= 5; i++) { 
         console.log(`Round ${i}!`)
+
+        let humanChoice = getHumanChoice();
+        let computerChoice = getComputerChoice();
+        playRound(humanChoice, computerChoice);
+
+        console.log(`Score: ${humanScore} - ${computerScore}`)
     }
+    console.log('Game ended!');
 }
 
 function playRound(humanChoice, computerChoice) {
@@ -18,10 +25,13 @@ function playRound(humanChoice, computerChoice) {
         ((humanChoice === "paper") && (computerChoice === "rock")) ||
         ((humanChoice === "scissors") && (computerChoice === "paper"))
     if (isWin) {
+        humanScore++;
         return console.log(`You win! ${humanChoice} beats ${computerChoice}!`)
+    } else {
+        computerScore++;
+        return console.log(`You lose! ${computerChoice} beats ${humanChoice}!`)
     }
 
-    return console.log(`You lose! ${computerChoice} beats ${humanChoice}!`)
 }
 
 function getHumanChoice() {
